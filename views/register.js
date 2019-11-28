@@ -21,8 +21,8 @@ const screen = `<div class="container">
                 <label for="RetypePassword">RetypePassword</label>
                 <input type="password" class="form-control" name="" id="RetypePassword" aria-describedby="helpId" placeholder="" required>
             </div>
-            <button type="submit" class="btn btn-primary">Register</button>
-            <button type="submit" class="btn btn-secondary" id="js-login">Back To Login</button>
+            <button type="submit" class="btn btn-secondary">Register</button>
+            <button type="submit" class="btn btn-success" id="js-login">Back To Login</button>
         </form>
     </div>
 </div>

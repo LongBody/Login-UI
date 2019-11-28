@@ -1,5 +1,6 @@
 import setScreen from '../index.js'
 import screen from "./register.js"
+// import content from "./logout.js"
 import { login } from "../controllers/auth.js"
 const backLogin = `<div class="container">
 <div class="row">
@@ -12,7 +13,7 @@ const backLogin = `<div class="container">
                     <label for="" >Password</label>
                     <input type="password" class="form-control" name="" id="password" aria-describedby="helpId" placeholder="" required>
                 </div>
-                <button type="submit" class="btn btn-primary">Login</button>
+                <button type="submit" class="btn btn-success">Login</button>
                 <button type="button" id="js-res" class="btn btn-secondary">Register</button>
                 </form>
         </div>
@@ -35,7 +36,9 @@ function onload() {
         try {
             const success = await login(user);
             if (success) {
+
                 window.location = "https://longbody.github.io/veronica/"
+
             }
         } catch (err) {
             alert(err.message);
@@ -52,5 +55,5 @@ function onload() {
 
 export default {
     content: backLogin,
-    onload: onload
+    onload: onload,
 }
