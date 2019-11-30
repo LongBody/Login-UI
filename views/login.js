@@ -30,15 +30,14 @@ function onload() {
 
     formLogin.addEventListener("submit", async function(event) {
         event.preventDefault();
-        const email = formLogin.email.value;
+        var email = formLogin.email.value;
         const password = formLogin.password.value;
         const user = { email: email, password: password };
         try {
             const success = await login(user);
             if (success) {
-
-                window.location = "https://longbody.github.io/veronica/"
-
+                window.location = "page.html"
+                    // setScreen(content)
             }
         } catch (err) {
             alert(err.message);
@@ -48,6 +47,7 @@ function onload() {
     });
 
 }
+
 
 
 

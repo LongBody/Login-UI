@@ -27,6 +27,7 @@ const screen = `<div class="container">
     </div>
 </div>
 </div>`
+var na;
 
 function onload() {
     document.getElementById('js-login').addEventListener('click', function() {
@@ -41,8 +42,9 @@ function onload() {
             name: form.name.value,
             password: form.Password.value,
             RetypePassword: form.RetypePassword.value,
+
         }
-        console.log(user)
+        console.log(name)
         const result = await register(user);
         if (result) alert("Register successfully!")
     });

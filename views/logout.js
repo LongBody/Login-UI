@@ -1,8 +1,4 @@
-import { log } from "util";
+const content = `  <p>p</p>
+<button type="button" class="btn btn-primary" onclick='log()'>logout</button>`
 
-// import setScreen from '../index.js'
-// import screen from "./views/register.js"
-
-
-
-// export default logout
+document.getElementById('app').innerHTML = content
