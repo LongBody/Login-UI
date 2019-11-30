@@ -37,7 +37,7 @@
 
         function log() {
             firebase.auth().signOut().then(function() {
-                window.location = "../index.html"
+                window.location = "./index.html"
 
             }, function(error) {
                 throw new Error("Failed")
