@@ -1,11 +1,12 @@
 async function register(user) {
     for (let key in user) {
-        console.log(key)
+        var err = document.getElementById("error")
         if (user[key].length === 0) {
             throw new Error(`${key} cannot be empty`);
         }
         if (user.password !== user.RetypePassword) {
-            throw new Error("Password not matched")
+            // err.innerHTML = "Password not matched"
+            throw new Error(err.innerHTML = "Password not matched");
         }
 
     }
@@ -21,7 +22,7 @@ async function login(user) {
     }
     const loginResult = await firebase.auth().signInWithEmailAndPassword(user.email, user.password);
     if (!loginResult.user.emailVerified) {
-        throw new Error("User is not verified! Please check your inbox!");
+        throw new Error(document.getElementById("err").innerHTML = "User is not verified! Please check your email box!");
     }
     return true;
 }

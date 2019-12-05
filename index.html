@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-    <title>Login</title>
-    <!-- Required meta tags -->
+    <title>Veronicas -Fast Food 0fficial Company</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="./logo_web.png" type="image/gif">
 
     <!-- <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-app.js"></script>
 
@@ -22,13 +22,23 @@
     <br>
     <br>
     <hr>
-    <center>
-        <h3 style="margin-right: 80px">Welcome To Veronica</h3>
-        <br>
-        <button type="button" class="btn btn-primary" onclick="logout()" id="btl" style="display: none;">You</button>
 
-    </center>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-3">
+                <center>
+                    <h4>Welcome to Veronica</h4>
+                    <p id="ten"></p>
+                </center>
+                <br>
+            </div>
+        </div>
+
+    </div>
+
     <div id="demo"></div>
+    <button onclick="signIn()">Sign In</button>
 
     <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js "></script>
 
@@ -50,6 +60,16 @@
         };
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
+
+        function signIn() {
+            var provider = new firebase.auth.GoogleAuthProvider();
+            firebase.auth().signInWithPopup(provider).then(function(result) {
+                window.location = "./index.html"
+            }).catch(function(error) {
+                var errmess = error.message;
+                alert(errmess)
+            });
+        }
     </script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js " integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo " crossorigin="anonymous "></script>
