@@ -1,6 +1,7 @@
 import setScreen from '../index.js'
 import screen from "./register.js"
 import { login } from "../controllers/auth.js"
+import logScreen from "./logout.js"
 const backLogin = `<div class="container">
 <div class="row">
 <div class="col-lg-4"></div>
@@ -27,18 +28,21 @@ function onload() {
 
     })
     const formLogin = document.getElementById("js-formLogin");
-
+    var ten = document.getElementById('ten')
 
     formLogin.addEventListener("submit", async function(event) { //// Login when true account
         event.preventDefault();
         var email = formLogin.email.value;
         const password = formLogin.password.value;
         const user = { email: email, password: password };
+        ten.innerHTML = email
+
         try {
             const success = await login(user);
             if (success) {
-                window.location = "page.html"
-
+                // window.location = "page.html"
+                await setScreen(logScreen)
+                ten.style.display = "block"
             }
         } catch (err) {
             alert(err.message);
@@ -46,6 +50,9 @@ function onload() {
 
 
     });
+
+
+
 
 }
 

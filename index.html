@@ -24,7 +24,7 @@
             <div class="col-lg-3">
                 <center>
                     <h4>Welcome to Veronica</h4>
-                    <p id="ten"></p>
+                    <p id="ten" style="display: none;"></p>
                 </center>
                 <br>
             </div>
@@ -44,7 +44,7 @@
                     <br>
                     <center>
 
-                        <button type="button" onclick="signin()" class="btn shadow card " style="background-color: #fff;;   padding: 5px 40px;border: 1px solid white;border-radius: 10px ;   font-family: 'Roboto', sans-serif;display: inline;opacity: 0.9;"><img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg " class="text-sign"> Sign in with Google</button>                        </center>
+                        <button type="button" id="signIn" class="btn shadow card " style="background-color: #fff;;   padding: 5px 40px;border: 1px solid white;border-radius: 10px ;   font-family: 'Roboto', sans-serif;display: inline;opacity: 0.9;"><img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg " class="text-sign"> Sign in with Google</button>                        </center>
 
                 </center>
                 <br>
@@ -78,24 +78,17 @@
 
         firebase.initializeApp(firebaseConfig);
 
-        function signin() {
-            var provider = new firebase.auth.GoogleAuthProvider();
-            firebase.auth().signInWithPopup(provider).then(function(result) {
 
-                window.location = "./page.html"
 
-            }).catch(function(error) {
+        function log() {
+            firebase.auth().signOut().then(function() {
+                window.location = "./index.html"
+                    // alert("long")
 
-                var errorCode = error.code;
-                var errorMessage = error.message;
-
-                var email = error.email;
-
-                var credential = error.credential;
+            }, function(error) {
+                throw new Error("Failed")
 
             });
-
-
         }
     </script>
 
@@ -103,9 +96,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js " integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1 " crossorigin="anonymous "></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js " integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM " crossorigin="anonymous "></script>
     <script src="index.js" type="module"></script>
-    <script src="./firabase.js"></script>
+    <script src="./views/Sign.js" type="module"></script>
 
-    <script src="./sign.js"></script>
 </body>
 
 </html>

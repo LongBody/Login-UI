@@ -1,7 +1,7 @@
 import backLogin from './login.js'
 import setScreen from '../index.js'
 import { register } from '../controllers/auth.js'
-var db = []
+
 const screen = `<div class="container">
 <div class="row">
 <div class="col-lg-4"></div>
@@ -11,7 +11,7 @@ const screen = `<div class="container">
             <input type="email" class="form-control" name="" id="email" aria-describedby="emailHelpId" placeholder="" required>
             <div class="form-group">
                 <label for="name">Name :</label>
-                <input type="text" class="form-control" name="name" id="name" aria-describedby="helpId" placeholder="" required>
+                <input type="text" class="form-control" name="name"  id="name" aria-describedby="helpId" placeholder="" required>
             </div>
             <div class="form-group">
                 <label for="">Password :</label>
@@ -31,11 +31,13 @@ const screen = `<div class="container">
 
 
 
+
 function onload() {
     document.getElementById('js-login').addEventListener('click', function() { /// back to login
         setScreen(backLogin)
 
     });
+
     const form = document.getElementById('js-formres'); /////register account
     form.addEventListener("submit", async function(event) {
         event.preventDefault();
@@ -47,20 +49,16 @@ function onload() {
 
         }
 
-        db.push(user.name)
         const result = await register(user);
         if (result) alert("Register successfully!")
         window.location = "../index.html"
 
+
     });
+
 }
-
-
-
-
 
 export default {
     content: screen,
     onload: onload,
-    db: db
 }

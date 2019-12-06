@@ -1,4 +1,7 @@
 import backLogin from "./views/login.js"
+// import l from "./logout.js"
+
+
 
 function setScreen(screen) {
     document.getElementById('demo').innerHTML = screen.content;
@@ -6,6 +9,8 @@ function setScreen(screen) {
 }
 
 setScreen(backLogin);
+
+
 
 
 export default setScreen;
