@@ -5,9 +5,9 @@ async function register(user) {
             throw new Error(`${key} cannot be empty`);
         }
         if (user.password !== user.RetypePassword) {
-            // err.innerHTML = "Password not matched"
+            err.innerHTML = "Password not matched"
             throw new Error("Password not matched");
-            alert("Password not matched")
+
         }
 
     }
