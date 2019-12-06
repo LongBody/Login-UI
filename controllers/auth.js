@@ -7,7 +7,10 @@ async function register(user) {
         if (user.password !== user.RetypePassword) {
             err.innerHTML = "Password not matched"
             throw new Error("Password not matched");
-
+        }
+        if (user.password.length && user.RetypePassword.length < 6) {
+            err.innerHTML = "Password must be more than 6 characters"
+            throw new Error("Password must be more than 6 characters");
         }
 
     }
