@@ -6,7 +6,7 @@ async function register(user) {
         }
         if (user.password !== user.RetypePassword) {
             // err.innerHTML = "Password not matched"
-            throw new Error(err.innerHTML = "Password not matched");
+            throw new Error("Password not matched");
         }
 
     }

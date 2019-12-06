@@ -54,7 +54,7 @@ function onload() {
 
         const result = await register(user);
         if (result) alert("Register successfully!")
-        window.location = "../index.html"
+        setScreen(backLogin)
 
 
     });
