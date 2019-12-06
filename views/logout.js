@@ -11,6 +11,7 @@ const logout = `<div class="container">
 
 
 function onload() {
+    document.getElementById('logout').style.display = "none"
 
 
 
