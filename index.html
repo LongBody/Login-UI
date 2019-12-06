@@ -6,23 +6,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="./logo_web.png" type="image/gif">
-    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-analytics.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-database.js"></script>
-    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-app.js"></script>
-
-    <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-auth.js"></script>
-
-    <script src="https://www.gstatic.com/firebasejs/6.1.1/firebase-database.js"></script>
-
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 <body>
-    <div id="firebaseui-auth-container"></div>
+
     <br>
     <br>
     <br>
@@ -43,7 +33,33 @@
     </div>
 
     <div id="demo"></div>
-    <button onclick="signIn()">Sign In</button>
+    <!-- <div id="firebaseui-auth-container"></div>
+    <div id="loader">Loading...</div> -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-3">
+                <center>
+                    <br>
+                    <center>
+
+                        <button type="button" onclick="signin()" class="btn shadow card " style="   padding: 5px 39px;
+                        border-radius: 1px solid white;
+                        font-family: 'Roboto', sans-serif;
+                        display: inline;
+                        opacity: 0.9;"><img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg " class="text-sign"> Sign In With Google</button> </center>
+
+                </center>
+                <br>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
 
 
     <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js "></script>
@@ -53,28 +69,37 @@
     <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-firestore.js "></script>
 
     <script>
-        // Your web app's Firebase configuration
         var firebaseConfig = {
-            apiKey: "AIzaSyAuIYtvkEcfl568bzw7CELppHmPp8sj-_k ",
-            authDomain: "feedback-3a1b9.web.app",
-            databaseURL: "https://feedback-3a1b9.firebaseio.com ",
-            projectId: "feedback-3a1b9 ",
-            storageBucket: "feedback-3a1b9.appspot.com ",
-            messagingSenderId: "827030835425 ",
-            appId: "1:827030835425:web:c122d7902c6a61d5bee7a0 ",
-            measurementId: "G-5ZQYZHF3V0 "
+            apiKey: "AIzaSyDE9Vump5G9fKrqex9X4SLxmDS8ufsEdPA",
+            authDomain: "login-v.firebaseapp.com",
+            databaseURL: "https://login-v.firebaseio.com",
+            projectId: "login-v",
+            storageBucket: "login-v.appspot.com",
+            messagingSenderId: "567703182760",
+            appId: "1:567703182760:web:c8a2cd5080e5855604119d",
+            measurementId: "G-86LRTGKD3R"
         };
-        // Initialize Firebase
+
         firebase.initializeApp(firebaseConfig);
 
-        function signIn() {
+        function signin() {
             var provider = new firebase.auth.GoogleAuthProvider();
             firebase.auth().signInWithPopup(provider).then(function(result) {
-                console.log(result)
+
+                window.location = "./page.html"
+
             }).catch(function(error) {
-                var errmess = error.message;
-                alert(errmess)
+
+                var errorCode = error.code;
+                var errorMessage = error.message;
+
+                var email = error.email;
+
+                var credential = error.credential;
+
             });
+
+
         }
     </script>
 
@@ -83,7 +108,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js " integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM " crossorigin="anonymous "></script>
     <script src="index.js" type="module"></script>
     <script src="./firabase.js"></script>
-    <script src="./login.js"></script>
+
+    <script src="./sign.js"></script>
 </body>
 
 </html>
