@@ -79,7 +79,16 @@
 
         firebase.initializeApp(firebaseConfig);
 
+        document.getElementById('signIn').addEventListener('click', function() {
+            var provider = new firebase.auth.GoogleAuthProvider();
+            firebase.auth().signInWithPopup(provider).then(function(result) {
+                window.location = "https://longbody.github.io/veronica/"
 
+
+            }).catch(function(error) {
+
+            });
+        })
 
         function log() {
             firebase.auth().signOut().then(function() {

@@ -11,6 +11,4 @@ function setScreen(screen) {
 setScreen(backLogin);
 
 
-
-
 export default setScreen;

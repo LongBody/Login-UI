@@ -32,7 +32,7 @@ const screen = `<div class="container">
 
 `
 
-
+var db = firebase.firestore();
 
 
 function onload() {
@@ -56,8 +56,19 @@ function onload() {
         if (result) alert("Register successfully!")
         setScreen(backLogin)
 
-
+        db.collection("Users").add({
+                email: user.email,
+                name: user.name,
+                password: user.password
+            })
+            .then(function(docRef) {
+                console.log("Document written with ID: ", docRef.id);
+            })
+            .catch(function(error) {
+                console.error("Error adding document: ", error);
+            });
     });
+
 
 }
 

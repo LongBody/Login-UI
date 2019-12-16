@@ -23,9 +23,12 @@ const backLogin = `<div class="container">
    
     
     `
+var db = firebase.firestore();
+
 
 
 function onload() {
+    // let name
     document.getElementById('js-res').addEventListener('click', function() { /// Back To Register
         setScreen(screen)
 
@@ -38,14 +41,34 @@ function onload() {
         var email = formLogin.email.value;
         const password = formLogin.password.value;
         const user = { email: email, password: password };
-        ten.innerHTML = email
+
+
 
         try {
             const success = await login(user);
             if (success) {
-                // window.location = "page.html"
+
+
+
+                db.collection("Users").get().then((querySnapshot) => {
+                    console.log(querySnapshot)
+                    querySnapshot.forEach((doc) => {
+                        var email = `${doc.data().email}`
+                            // console.log(`${doc.id} => ${doc.data().email}`);
+                        console.log(typeof user.email)
+                        console.log(email)
+                        if (email === user.email) {
+                            name = ` ${doc.data().name}`
+                            ten.style.display = "block"
+                            ten.innerHTML = name
+
+                        }
+
+                    });
+                });
                 await setScreen(logScreen)
-                ten.style.display = "block"
+
+
             }
         } catch (err) {
             alert(err.message);
@@ -64,4 +87,7 @@ function onload() {
 export default {
     content: backLogin,
     onload: onload,
+    // name: function onload() {
+    //     name = name
+    // }
 }
