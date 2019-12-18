@@ -9,11 +9,13 @@ const backLogin = `<div class="container">
             <form class="form-group" id="js-formLogin">
                 <label for="email">Email :</label>
                 <input type="email" class="form-control" name="" id="email"  aria-describedby="emailHelpId" placeholder="" required>
+
                 <div class="form-group">
-                    <label for="" >Password :</label>
-                    <input type="password" class="form-control" name="" id="password" aria-describedby="helpId" placeholder="" required>
-                    <p style="display:nones;color:red" id="err"></p>
-                    </div>
+                <label for="Password">Password :</label>
+                <input type="password" class="form-control" name="" id="Password" aria-describedby="helpId" placeholder="" required>
+                </div>
+                <p style="display:nones;color:red" id="err"></p>
+                
                 <button type="submit" class="btn btn-success">Login</button>
                 <button type="button" id="js-res" class="btn btn-secondary">Register</button>
                 </form>
@@ -66,6 +68,8 @@ function onload() {
 
                     });
                 });
+
+
                 await setScreen(logScreen)
 
 

@@ -8,13 +8,13 @@ const screen = `<div class="container">
     <div class="col-lg-3 card shadow"  style="padding: 20px 25px; border: 1px solid black;border-radius: 10px;">
         <form class="form-group" id="js-formres">
             <label for="email">Email :</label>
-            <input type="email" class="form-control" name="" id="email" aria-describedby="emailHelpId" placeholder="" required>
+            <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelpId" placeholder="" required>
             <div class="form-group">
                 <label for="name">Name :</label>
                 <input type="text" class="form-control" name="name"  id="name" aria-describedby="helpId" placeholder="" required>
             </div>
             <div class="form-group">
-                <label for="">Password :</label>
+                <label for="Password">Password :</label>
                 <input type="password" class="form-control" name="" id="Password" aria-describedby="helpId" placeholder="" required>
             </div>
             <div class="form-group">
@@ -67,6 +67,7 @@ function onload() {
             .catch(function(error) {
                 console.error("Error adding document: ", error);
             });
+
     });
 
 
